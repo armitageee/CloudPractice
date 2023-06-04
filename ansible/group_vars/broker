@@ -1,0 +1,5 @@
+---
+broker_src: ./roles/deploy-role/files/vms/broker
+broker_dest: ~/remote
+gateway_user: root
+mosquitto_src: ~/remote/broker/mosquitto:/mosquitto/config

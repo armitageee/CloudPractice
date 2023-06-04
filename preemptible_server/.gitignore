@@ -1,0 +1,12 @@
+# Игнорировать файлы Terraform
+*.tf
+*.tfvars
+
+# Игнорировать все файлы в директории .terraform
+**/.terraform/*
+
+# Игнорировать все файлы .tfstate
+*.tfstate
+
+# Игнорировать файлы, содержащие .tfstate. 
+*.tfstate.*

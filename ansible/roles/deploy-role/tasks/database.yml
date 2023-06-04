@@ -1,0 +1,8 @@
+---
+- name: copying grafana and telegraf
+  ansible.builtin.copy:
+    src: "{{database_src}}"
+    dest: "{{docker_src_server}}"
+    owner: "{{ansible_user}}"
+    group: "{{ansible_user}}"
+    mode: '0644'

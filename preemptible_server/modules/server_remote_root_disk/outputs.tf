@@ -13,3 +13,7 @@ output "server_root_volume_id" {
 output "floating_ip" {
   value = module.floatingip.floatingip_address
 }
+
+output "nat_ip" {
+  value = openstack_networking_port_v2.port_1.all_fixed_ips
+}

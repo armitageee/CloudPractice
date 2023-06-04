@@ -26,7 +26,7 @@ variable "server_zone" {
 
 variable "server_ssh_key" {}
 
-variable "server_ssh_key_user" {}
+variable "region" {}
 
 variable "server_license_type" {
   default = ""
@@ -38,3 +38,7 @@ variable "server_group_id" {
 variable "server_preemptible_tag" {
   default = []
 }
+
+variable "network_id" {}
+
+variable "subnet_id" {}

@@ -1,0 +1,42 @@
+---
+# tasks file for docker-install
+# - name: Install aptitude
+#   ansible.builtin.apt:
+#     name: aptitude
+#     state: latest
+#     update_cache: true
+
+- name: Install required system packages
+  ansible.builtin.apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
+      - virtualenv
+      - python3-setuptools
+    state: latest
+    update_cache: true
+
+- name: Add Docker GPG apt Key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker Repository
+  ansible.builtin.apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu jammy stable
+    state: present
+
+- name: Update apt and install docker-io
+  ansible.builtin.apt:
+    name: docker.io
+    state: latest
+    update_cache: true
+
+- name: Install Docker Compose
+  ansible.builtin.pip:
+    name:
+      - urllib3
+      - docker-compose

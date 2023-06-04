@@ -1,0 +1,5 @@
+---
+database_src: ./roles/deploy-role/files/vms/database/
+server_user: root
+docker_src_server: ~/remote/
+docker_compose_src: ~/remote/infra/

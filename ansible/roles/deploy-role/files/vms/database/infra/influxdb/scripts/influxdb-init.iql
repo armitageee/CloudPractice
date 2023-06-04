@@ -1,0 +1,2 @@
+CREATE database sensors
+CREATE USER telegraf WITH PASSWORD 'telegraf' WITH ALL PRIVILEGES

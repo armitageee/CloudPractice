@@ -1,17 +1,3 @@
-variable "sel_account" {}
-
-variable "sel_token" {}
-
-variable "project_name" {
-  default = "tf_project"
-}
-
-variable "user_name" {
-  default = "tf_user"
-}
-
-variable "user_password" {}
-
 variable "keypair_name" {
   default = "tf_keypair"
 }
@@ -25,23 +11,27 @@ variable "server_name" {
 }
 
 variable "server_vcpus" {
-  default = 4
+  default = 1
 }
 
 variable "server_ram_mb" {
-  default = 8192
+  default = 1024
 }
 
 variable "server_root_disk_gb" {
-  default = 8
+  default = 5
+}
+
+variable "region" {
+  default = "ru-7"
 }
 
 variable "server_volume_type" {
-  default = "fast.ru-7a"
+  default = "basic.ru-7a"
 }
 
 variable "server_image_name" {
-  default = "Ubuntu 18.04 LTS 64-bit"
+  default = "Ubuntu 20.04 LTS 64-bit"
 }
 
 variable "server_preemptible_tag" {
@@ -63,4 +53,21 @@ variable "server_zone" {
     condition     = can(regex("ru-7a", var.server_zone))
     error_message = "Preemtible servers are available in ru-7a pool only."
   }
+}
+
+# Sensitive block
+variable "domain_name" {
+  sensitive = true
+}
+
+variable "tenant_id" {
+  sensitive = true
+}
+
+variable "user_name" {
+  sensitive = true
+}
+
+variable "password" {
+  sensitive = true
 }

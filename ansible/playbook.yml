@@ -1,0 +1,70 @@
+###############################
+#   TOP LAB IN THE WORLD  #
+###############################
+
+---
+- hosts: all  
+  tasks:
+    - name: "Installing Docker and docker compose"
+      include_role: 
+        name: docker-install
+        tasks_from: main
+
+
+-  hosts: broker
+   tasks:
+
+    - name: deploy on broker
+      include_role:
+        name: deploy-role
+        tasks_from: broker
+
+- hosts: database
+  tasks:
+    - name: deploy on database
+      include_role:
+        name: deploy-role
+        tasks_from: database
+
+- hosts: simulator
+  tasks:
+    - name: deploy on sim host
+      include_role:
+        name: deploy-role
+        tasks_from: simulator
+
+- hosts: simulator
+  tasks:
+    - name: generate cfg for simulator
+      include_role:
+        name: conf_files
+        tasks_from: env
+
+- hosts: database
+  tasks:
+  - name: generate cfg for db
+    include_role:
+      name: conf_files
+      tasks_from: telegraf.yml
+
+
+- hosts: broker
+  tasks:
+    - name: starting mqtt broker
+      include_role:
+        name: docker-infra
+        tasks_from: broker
+    
+- hosts: database
+  tasks:
+    - name: starting database and telegraf with grafana
+      include_role:
+        name: docker-infra
+        tasks_from: database
+
+- hosts: simulator
+  tasks:
+    - name: starting simulator container
+      include_role:
+        name: docker-infra
+        tasks_from: simulator

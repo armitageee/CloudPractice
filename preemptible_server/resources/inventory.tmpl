@@ -1,0 +1,6 @@
+[simulator]
+${simulator_vm_ip_public} private_simulator_ip=${simulator_vm_ip_nat} private_broker_ip=${broker_vm_ip_nat}
+[broker]
+${broker_vm_ip_public} private_broker_ip=${broker_vm_ip_nat}
+[database]
+${database_vm_ip_public} private_database_ip=${database_vm_ip_nat} private_broker_ip=${broker_vm_ip_nat}

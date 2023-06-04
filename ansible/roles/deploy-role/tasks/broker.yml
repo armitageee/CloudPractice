@@ -1,0 +1,9 @@
+---
+- name: copying broker
+  ansible.builtin.copy:
+    src: "{{broker_src}}"
+    dest: "{{broker_dest}}"
+    owner: root
+    group: root
+    mode: '0644'
+  # delegate_to: broker

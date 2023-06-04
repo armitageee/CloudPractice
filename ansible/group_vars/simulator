@@ -1,0 +1,5 @@
+---
+simulator_src: ./roles/deploy-role/files/vms/app/simulator
+simulator_dest: ~/remote
+client_user: root
+docker_src_simulator: ~/remote/simulator

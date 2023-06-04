@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  temp_sensor:
+    image: wuwun9/simulator
+    environment:
+      - SIM_HOST=$SIM_HOST_IP
+      - SIM_NAME=SIM_TEMPERATURE
+      - SIM_PERIOD=5
+      - SIM_TYPE=temperature
+  pressure_sensor:
+    image: wuwun9/simulator
+    environment:
+      - SIM_HOST=$SIM_HOST_IP
+      - SIM_NAME=SIM_PRESSURE
+      - SIM_PERIOD=10
+      - SIM_TYPE=pressure
+  current_sensor:
+    image: wuwun9/simulator
+    environment:
+      - SIM_HOST=$SIM_HOST_IP
+      - SIM_NAME=SIM_CURRENT
+      - SIM_PERIOD=1
+      - SIM_TYPE=current
