@@ -1,10 +1,8 @@
 ---
-- name: changing configuration for telegraf
+- name: Updating config file for telegraf
   ansible.builtin.lineinfile:
     dest: ~/remote/infra/telegraf/telegraf.conf
     regexp: '^ihatethisstringalot'
     line: 'servers = ["tcp://{{private_broker_ip}}:1883"]'
   vars: 
     broker_private_ip: "{{private_broker_ip}}"
-
-

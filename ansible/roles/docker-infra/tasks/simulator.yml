@@ -1,5 +1,5 @@
 ---
-# tasks file for docker-infra
+# tasks file for simulator
 
 - docker_host_info:
     images: yes
