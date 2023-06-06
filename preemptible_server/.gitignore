@@ -10,3 +10,7 @@
 
 # Игнорировать файлы, содержащие .tfstate. 
 *.tfstate.*
+
+*.terraform.lock.hcl
+
+
